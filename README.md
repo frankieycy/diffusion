@@ -12,5 +12,9 @@
 * outputs:
 	- `pos.xyz`: coordinates of particles
 	- `data.txt`: time-series statistics, including mean, standard deviation, variance
+	- `mu.png`: how mean displacement varies with time
+	- `traj.png`: tracer track
+	- `var.png`: how squared displacement varies with time
+
 
 

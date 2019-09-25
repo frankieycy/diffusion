@@ -10,7 +10,7 @@
 #define X0 1.
 #define dt 0.1
 
-FILE *pos,*data; // outputs
+FILE *pos,*data,*traj; // outputs
 
 float
 x[N],y[N],vx[N],vy[N]; // particles
@@ -47,7 +47,7 @@ void update(){
 	/* gather statistics */
 	mu = mean(N,x);
 	sigma = sd(N,x);
-	sigma2 = sd(N,x);
+	sigma2 = var(N,x);
 	t+=dt;
 }
 
@@ -63,21 +63,27 @@ void print_dat(FILE *out){
 	fprintf(out,"%.4f %.4f %.4f %.4f\n",t,mu,sigma,sigma2);
 }
 
+void print_traj(FILE *out){
+	/* print trajectory */
+	fprintf(out,"%.1f %.4f %.4f\n",t,x[0],y[0]);
+}
+
 void iter(){
 	while(t<T){
 		update();
 		print_xyz(pos);
 		print_dat(data);
+		print_traj(traj);
 	}
 }
 
 int main(){
 	pos=fopen("pos.xyz","w"); // coordinates
 	data=fopen("data.txt","w"); // statistics
-
+	traj=fopen("traj.txt","w");
 	iter();
-
 	fclose(pos);
 	fclose(data);
+	fclose(traj);
 	return 0;
 }

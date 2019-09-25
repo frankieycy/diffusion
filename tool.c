@@ -41,12 +41,6 @@ float normal(float a, float b){
 	return a+b*z;
 }
 
-float less(float a, float b){
-	/* smaller */
-	if(a<b) return a;
-	return b;
-}
-
 float mean(int l, float *a){
 	float x=0;
 	for(int i=0; i<l; i++) x+=a[i];
