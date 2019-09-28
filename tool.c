@@ -2,6 +2,8 @@
 #define TOOL
 #include <math.h>
 
+/* helper library */
+
 void line(){
 	printf("--------------\n");
 }
@@ -42,18 +44,21 @@ float normal(float a, float b){
 }
 
 float mean(int l, float *a){
+	/* mean */
 	float x=0;
 	for(int i=0; i<l; i++) x+=a[i];
 	return x/l;
 }
 
 float var(int l, float *a){
+	/* variance */
 	float x=0;
 	for(int i=0; i<l; i++) x+=pow(a[i],2);
 	return x/l-pow(mean(l,a),2);
 }
 
 float sd(int l, float *a){
+	/* standard deviation */
 	return sqrt(var(l,a));
 }
 

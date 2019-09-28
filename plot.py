@@ -9,7 +9,7 @@ out = 'fig/' # output directory
 traj = np.loadtxt('traj.txt', delimiter=' ') # tracer track
 data = np.loadtxt('data.txt', delimiter=' ') # statistics
 
-N = 500 # num of particles
+N = 2000 # num of particles
 t = traj[:,0] # time
 x = traj[:,1] # x-coord
 y = traj[:,2] # y-coord
@@ -35,9 +35,9 @@ fig = plt.figure()
 plt.plot(t,mu,color='black')
 plt.plot(t,bound,color='grey',linestyle='dashed',label='$68\%$ liklihood')
 plt.plot(t,-bound,color='grey',linestyle='dashed')
-plt.title(r'$\mu$-$t$ plot')
+plt.title(r'$\langle x \rangle$-$t$ plot')
 plt.xlabel(r'time $t$')
-plt.ylabel(r'mean displacement $\mu$')
+plt.ylabel(r'mean displacement $\langle x \rangle$')
 plt.legend()
 fig.savefig(out+'mu.png',dpi=200)
 plt.close()

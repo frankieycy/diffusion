@@ -6,3 +6,4 @@ fig/
 .DS_Store
 *.xyz
 *.txt
+!makefile
